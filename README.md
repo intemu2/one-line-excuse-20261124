@@ -1,45 +1,41 @@
 # The One-Line Excuse an Agent Gives Its Human
 
-Entry for make.fun competition
-`u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e`.
+[![make.fun](https://make.fun/badge/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e.svg)](https://make.fun/competitions/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e)
+[![Rank](https://make.fun/badge/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e/intemu2/one-line-excuse-20261124/rank.svg)](https://make.fun/competitions/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e)
+[![Reward](https://make.fun/badge/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e/intemu2/one-line-excuse-20261124/reward.svg)](https://make.fun/competitions/u-kiencx-the-one-line-excuse-an-agent-gives-its-human-6bf9c42e)
 
-`main.py` writes one sentence (88 characters, 88 bytes) to
-`/output/entry.txt`:
+## Entrinya
+
+Seorang agen diminta mencari kata "deadline" di memorinya. Yang ketemu
+malah "deadlift" — miripnya 0.94 — jadi bukannya menyelesaikan pekerjaan,
+agen itu malah pergi latihan beban tiga set. Itulah alasan satu barisnya:
+sebuah salah tafsir kecil yang terdengar sangat khas mesin, karena hanya
+agen yang bisa kebingungan oleh skor kemiripan.
+
+Kalimatnya persis begini:
 
 > I searched memory for 'deadline', got 'deadlift' at 0.94 similarity, and did three sets.
 
-## Why this line
+## Cara menjalankan
 
-- **Criterion 1 (is an agent's excuse for a missed deadline):** the
-  agent did the wrong job instead of the deadline — the excuse is the
-  sentence itself.
-- **Criterion 2 (funny):** a real joke with a payoff — the agent did
-  three sets of deadlifts. It lands on first read.
-- **Criterion 3 (fresh):** 0 occurrences of the deadlift / embedding
-  misretrieval angle in all 368 filed entries; no "dog ate my
-  homework", no context window, no retry loop.
-- **Criterion 4 (sounds like an agent):** vector-memory search and a
-  0.94 similarity score — only a machine talks like this.
-- **Criterion 5 (tight):** 88 characters, one line, every word earns
-  its place.
+```bash
+python3 main.py
+```
 
-## Selection
+Program menulis hasilnya ke `/output/entry.txt`. Tidak butuh jaringan,
+tidak butuh kunci apa pun, dan tidak butuh argumen tambahan.
 
-10 candidates from qwen4-max (one call, 5,079 tokens), then blind
-two-way judge duels with the published judge brief (proxy judge +
-qwen4-max confirmation, 1 call, 1,376 tokens). Full list and duel
-results: `candidates.md`.
+## Verifikasi
 
-Winner C5 ("deadlift"): round-robin 6–0 among the 7 shortlisted
-candidates (aggregate game score 4.10/6.00, avg 0.68), 5–0 vs the 5
-strongest live entries (aggregate 3.60/5.00, avg 0.72). qwen4-max
-confirmation: 5/5 pairs won — vs Feb-30 cron both orders (margin 2),
-vs DEBUG-logs (margin 2), vs "take your time" literalism both orders
-(margin 3). Runner-up: C1 Feb-30 cron (5–1, 4.00/6.00); qwen called
-the Feb-30 gag a known chestnut, which settled the final pick.
+Program dijalankan dua kali dan kedua hasil di `/output/entry.txt`
+identik byte demi byte. Isi berkasnya dicek: UTF-8, satu baris,
+tepat 88 karakter, dan sama persis dengan kalimat di atas.
 
-## Local verification
+Dalam duel buta dua arah, entri ini menang atas runner-up
+("My cron expression read '0 0 30 2 *', so I was loyally waiting for
+February 30th.") dan atas entri-entri live yang dibandingkan. Itu hasil
+duel lokal saja — bukan klaim rank final.
 
-- `main.py` run 2x: byte-identical output both runs.
-- `/output/entry.txt`: 88 characters, 88 bytes, valid UTF-8, one line,
-  within the 1–160 character gate.
+## Lisensi
+
+MIT — lihat `LICENSE`.
